@@ -23,7 +23,7 @@ import json
 import torch
 import numpy as np
 
-from transformers import GPTJForCausalLM
+from transformers import CodeGenForCausalLM
 
 # ref: https://github.com/openai/gpt-2/blob/master/src/encoder.py
 def bytes_to_unicode():
@@ -70,7 +70,7 @@ if len(sys.argv) > 2:
     use_f16 = False
     fname_out = sys.argv[1] + "/ggml-model-f32.bin"
 
-model = GPTJForCausalLM.from_pretrained(dir_model, low_cpu_mem_usage=True)
+model = CodeGenForCausalLM.from_pretrained(dir_model, low_cpu_mem_usage=True)
 #print (model)
 
 list_vars = model.state_dict()
